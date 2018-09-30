@@ -1,0 +1,13 @@
+
+<p *ngIf="error"> error : {{error |json}}</p>
+
+<!-- <pre *ngIf="!error">{{roverList$ |async |json}} </pre>  -->
+
+<app-rover-item *ngFor="let rover of roverList$ |async"
+                [rover]="rover"
+                (select)="selected = $event"
+></app-rover-item>
+
+<app-rover-details [rover]="selected" *ngIf="selected"></app-rover-details>
+
+<!-- <pre>{{selected |json}}</pre> -->

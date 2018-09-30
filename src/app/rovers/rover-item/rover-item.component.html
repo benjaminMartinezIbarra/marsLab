@@ -1,0 +1,9 @@
+<div class="item"
+     [class.dead] = "rover.status !== 'active'">
+  <div class="photo">
+    <img [src]="rover.img_src"
+    (click)="select.emit(rover)">
+  </div>
+  <div class="bar" [style.width.px] ="rover.max_sol / 40"></div>
+  <div class="label">{{rover.name}}</div>
+</div>

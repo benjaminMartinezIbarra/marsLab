@@ -1,0 +1,7 @@
+<pre>{{photo | json}}</pre>
+
+<pre>{{bigPhotos$ |async |json}}</pre>
+
+<div *ngIf="bigPhotos$ |async as foto">
+  <img [src]="foto.img_src" >
+</div>

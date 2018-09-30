@@ -1,0 +1,16 @@
+<div class="details" [@selectRover]="rover.name">
+  <h3>{{rover.name |uppercase}}</h3>
+
+  <p>Date d'atterrissage sur Mars : {{rover.landing_date |date :'dd/MM/yyyy'}}</p>
+  <p>Date de lancement : {{rover.launch_date |dateIso}}</p>
+  <p>Statut : {{rover.status |status}}</p>
+  <p>Max sol : {{rover.max_sol}}</p>
+
+  <p>Caméras : <ng-container *ngFor="let camera of rover.cameras ; last as isLast">
+    {{camera.name}} = {{camera.full_name}}<ng-container *ngIf="!isLast">,</ng-container>
+  </ng-container></p>
+
+  <div class="description" [innerHTML]="rover.description"></div>
+</div>
+
+

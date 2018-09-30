@@ -1,0 +1,6 @@
+
+<div *ngIf="photoSearchResult.photos as list">
+  <p>nbre photos : {{list.length}}</p>
+  <app-photo-item *ngFor="let photo of list"
+                  [photo]="photo"></app-photo-item>
+</div>

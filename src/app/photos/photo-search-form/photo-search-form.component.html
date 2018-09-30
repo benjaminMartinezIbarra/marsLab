@@ -1,0 +1,35 @@
+<form #formInfo="ngForm"
+(ngSubmit)="onSubmit()">
+
+  Rover :
+  <select name="rover"
+          [(ngModel)]="data.rover"
+          (ngModelChange)="data.camera = undefined"
+          required
+  #roverInfo="ngModel">
+    <option [ngValue]="undefined"></option>
+    <option *ngFor="let rover of roverList$ |async"
+            [ngValue]="rover">{{rover.name}}
+    </option>
+  </select>
+
+  Caméra :
+  <select name="camera"
+          [(ngModel)]="data.camera">
+    <option [ngValue]="undefined"></option>
+    <option *ngFor="let camera of data.rover?.cameras"
+            [ngValue]="camera">{{camera.name}}
+    </option>
+  </select>
+
+  Sol :
+  <input type="number" name="sol"
+         [ngModel]="data.sol"
+         (ngModelChange)="data.sol = $event">
+
+  <input type="number" name="sol"
+         [(ngModel)]="data.sol">
+
+  <button [disabled]="formInfo.invalid" type="submit">Rechercher</button>
+  <span *ngIf="roverInfo.invalid">Vous devez choisir un Rover</span>
+</form>

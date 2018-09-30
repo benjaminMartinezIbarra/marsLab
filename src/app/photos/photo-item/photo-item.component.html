@@ -1,0 +1,12 @@
+<div class="item">
+  <div class="photo">
+    <a [routerLink]="['/photos', photo.id]">
+      <img [src]="photo.img_src">
+    </a>
+  </div>
+  <div class="label">{{photo.rover.name}}>
+    /{{photo.camera.name}}
+    /{{photo.sol}}
+    /{{photo.id}}
+    </div>
+  </div>
